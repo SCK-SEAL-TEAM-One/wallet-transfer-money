@@ -36,3 +36,33 @@ func checkTransferPerTransaction(checkTransferPerTransaction float64) bool {
 	return false
 
 }
+
+func TransferProcess(accountFrom, accountTo Account, amount float64) TransferResponse {
+	if false {
+		return TransferResponse{
+			BalanceOld: accountFrom.Balance,
+			BalanceNew: accountFrom.Balance,
+			Withdrawal: 0,
+		}
+	}
+	if false {
+		return TransferResponse{
+			BalanceOld: accountFrom.Balance,
+			BalanceNew: accountFrom.Balance,
+			Withdrawal: 0,
+		}
+	}
+	if false {
+		return TransferResponse{
+			BalanceOld: accountFrom.Balance,
+			BalanceNew: accountFrom.Balance,
+			Withdrawal: 0,
+		}
+	}
+	return TransferResponse{
+		BalanceOld: accountFrom.Balance,
+		BalanceNew: (accountFrom.Balance - amount),
+		Withdrawal: amount,
+	}
+
+}
