@@ -47,3 +47,15 @@ func Test_checkTransferPerTransaction_Input_500_Dot_00_Should_Be_True(t *testing
 	}
 
 }
+
+func Test_Transfer_Input_20000_Dot_00_And_500_Dot_00_Should_Be_19500_Dot_00(t *testing.T) {
+	balance := 20000.00
+	transfer := 500.00
+	expected := 19500.00
+
+	actual := Transfer(balance, transfer)
+
+	if expected != actual {
+		t.Errorf("Should be %f but got %f", expected, actual)
+	}
+}

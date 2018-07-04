@@ -31,3 +31,8 @@ func checkTransferPerTransaction(checkTransferPerTransaction float64) bool {
 	return false
 
 }
+
+func Transfer(balance, tranfer float64) float64 {
+	balanceNew := balance - tranfer
+	return balanceNew
+}
