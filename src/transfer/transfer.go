@@ -1,5 +1,12 @@
 package transfer
 
+func checkTransferPerDay(amount float64) bool {
+	if amount > 100000.00 {
+		return true
+	}
+	return false
+}
+
 type Account struct {
 	Name           string  `json:"name"`
 	Id             string  `json:"id"`
