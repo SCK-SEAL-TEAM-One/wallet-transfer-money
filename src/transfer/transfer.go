@@ -9,6 +9,12 @@ type Account struct {
 	TransferPerDay float64 `json:"transferperday"`
 }
 
+type TransferResponse struct {
+	BalanceOld float64 `json:"balanceold"`
+	BalanceNew float64 `json:"balancenew"`
+	Withdrawal float64 `json:"withdrawal"`
+}
+
 func getAccount(accountNumber string) Account {
 	if accountNumber == "981751424" {
 		return Account{Name: "Panumars Seanto", Id: "981751424", Balance: 20000.00, TransferPerDay: 0.00}
