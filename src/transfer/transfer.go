@@ -1,5 +1,6 @@
 package transfer
 
+const LIMITPERTRANSACTION = 20000.00
 const LIMITPERDAY = 100000.00
 const FEE = 0.00
 
@@ -26,22 +27,14 @@ func getAccount(accountNumber string) Account {
 	return Account{}
 }
 func checkBalance(amount, transterMoney, fee float64) bool {
-	if transterMoney+fee >= amount {
-		return true
-	}
-
-	return false
+	return transterMoney+fee >= amount
 }
 func checkTransferPerDay(amount float64) bool {
 	return amount > LIMITPERDAY
 }
 
 func checkTransferPerTransaction(checkTransferPerTransaction float64) bool {
-	if checkTransferPerTransaction > 20000 {
-		return true
-	}
-	return false
-
+	return checkTransferPerTransaction > LIMITPERTRANSACTION
 }
 
 func TransferProcess(accountFrom, accountTo Account, amount float64) TransferResponse {
@@ -52,14 +45,14 @@ func TransferProcess(accountFrom, accountTo Account, amount float64) TransferRes
 			Withdrawal: 0,
 		}
 	}
-	if false {
+	if checkTransferPerTransaction(amount) {
 		return TransferResponse{
 			BalanceOld: accountFrom.Balance,
 			BalanceNew: accountFrom.Balance,
 			Withdrawal: 0,
 		}
 	}
-	if false {
+	if checkTransferPerDay(amount + accountFrom.TransferPerDay) {
 		return TransferResponse{
 			BalanceOld: accountFrom.Balance,
 			BalanceNew: accountFrom.Balance,
