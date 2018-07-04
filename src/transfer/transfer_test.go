@@ -7,7 +7,9 @@ func Test_TransferService_Input_AccountNumberFrom_9817571424_And_AccountNumberTo
 	accountNumberTo := "9817571425"
 	amountTransfer := 500.00
 	expected := TransferResponse{
-		BalanceOld: 20000.00, BalanceNew: 19500.00, Withdrawal: 500.00,
+		BalanceOld: 20000.00,
+		BalanceNew: 19500.00,
+		Withdrawal: 500.00,
 	}
 
 	actual := TransferService(accountNumberFrom, accountNumberTo, amountTransfer)

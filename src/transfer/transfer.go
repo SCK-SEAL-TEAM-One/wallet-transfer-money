@@ -1,9 +1,9 @@
 package transfer
 
 type TransferResponse struct {
-	BalanceOld float64
-	BalanceNew float64
-	Withdrawal float64
+	BalanceOld float64 `json:"balanceold"`
+	BalanceNew float64 `json:"balancenew"`
+	Withdrawal float64 `json:"withdrawal"`
 }
 
 func TransferService(accountNumberFrom, accountNumberTo string, amountTransfer float64) TransferResponse {
