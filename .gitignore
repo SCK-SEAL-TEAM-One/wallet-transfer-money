@@ -1,0 +1,10 @@
+bin
+pkg
+.DS_Store
+atdd/ui/*.png
+atdd/ui/*.html
+atdd/ui/*.xml
+log.html
+output.xml
+report.html
+selenium-screenshot*.png
