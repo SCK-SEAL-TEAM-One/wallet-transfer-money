@@ -72,3 +72,8 @@ func TransferProcess(accountFrom, accountTo Account, amount float64) TransferRes
 		Withdrawal: amount,
 	}
 }
+
+func Transfer(balance, tranfer float64) float64 {
+	balanceNew := balance - tranfer
+	return balanceNew
+}
