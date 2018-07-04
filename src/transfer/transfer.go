@@ -30,3 +30,11 @@ func getAccount(accountNumber string) Account {
 	}
 	return Account{}
 }
+
+func checkTransferPerTransaction(checkTransferPerTransaction float64) bool {
+	if checkTransferPerTransaction > 20000 {
+		return true
+	}
+	return false
+
+}

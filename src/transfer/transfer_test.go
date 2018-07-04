@@ -60,3 +60,15 @@ func Test_getAccount_Input_981751425_Should_Be_Piyanuch_Ekpiyakool(t *testing.T)
 	}
 
 }
+
+func Test_checkTransferPerTransaction_Input_500_Dot_00_Should_Be_True(t *testing.T) {
+	transferPerTransaction := 500.00
+	expected := false
+
+	actual := checkTransferPerTransaction(transferPerTransaction)
+
+	if expected != actual {
+		t.Errorf("Should be %t but got %t", expected, actual)
+	}
+
+}
