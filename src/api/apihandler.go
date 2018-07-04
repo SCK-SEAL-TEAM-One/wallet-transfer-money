@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"net/http"
+	"transfer"
 )
 
 type TransferRequest struct {
@@ -21,13 +22,11 @@ func TransferHandler(responseWriter http.ResponseWriter, request *http.Request) 
 	decoder := json.NewDecoder(request.Body)
 	var transferRequest TransferRequest
 	err := decoder.Decode(&transferRequest)
-
 	if err != nil {
 		http.Error(responseWriter, err.Error(), 500)
 		return
 	}
-
-	transferResponse := TransferResponse{}
+	transferResponse := transfer.TransferService(transferRequest.AccountNumberFrom, transferRequest.AccountNumberTo, transferRequest.AccountTransfer)
 	transferResponseJSON, _ := json.Marshal(transferResponse)
 	responseWriter.Write(transferResponseJSON)
 }
