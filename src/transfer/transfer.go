@@ -1,11 +1,6 @@
 package transfer
 
-func checkTransferPerDay(amount float64) bool {
-	if amount > 100000.00 {
-		return true
-	}
-	return false
-}
+const LIMITPERDAY = 100000.00
 
 type Account struct {
 	Name           string  `json:"name"`
@@ -22,4 +17,8 @@ func getAccount(accountNumber string) Account {
 		return Account{Name: "Piyanuch Ekpiyakool", Id: "981751425", Balance: 100000.00, TransferPerDay: 0.00}
 	}
 	return Account{}
+}
+
+func checkTransferPerDay(amount float64) bool {
+	return amount > LIMITPERDAY
 }
