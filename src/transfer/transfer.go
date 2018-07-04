@@ -17,6 +17,12 @@ type TransferResponse struct {
 	Withdrawal float64 `json:"withdrawal"`
 }
 
+func TransferService(accountNumberFrom, accountNumberTo string, amountTransfer float64) TransferResponse {
+	accountFrom := getAccount(accountNumberFrom)
+	accountTo := getAccount(accountNumberTo)
+	return TransferProcess(accountFrom, accountTo, amountTransfer)
+}
+
 func getAccount(accountNumber string) Account {
 	if accountNumber == "981751424" {
 		return Account{Name: "Panumars Seanto", Id: "981751424", Balance: 20000.00, TransferPerDay: 0.00}
@@ -27,7 +33,7 @@ func getAccount(accountNumber string) Account {
 	return Account{}
 }
 func checkBalance(amount, transterMoney, fee float64) bool {
-	return transterMoney+fee >= amount
+	return amount < (transterMoney + fee)
 }
 func checkTransferPerDay(amount float64) bool {
 	return amount > LIMITPERDAY
@@ -38,6 +44,7 @@ func checkTransferPerTransaction(checkTransferPerTransaction float64) bool {
 }
 
 func TransferProcess(accountFrom, accountTo Account, amount float64) TransferResponse {
+
 	if checkBalance(accountFrom.Balance, amount, FEE) {
 		return TransferResponse{
 			BalanceOld: accountFrom.Balance,
@@ -64,5 +71,4 @@ func TransferProcess(accountFrom, accountTo Account, amount float64) TransferRes
 		BalanceNew: (accountFrom.Balance - amount),
 		Withdrawal: amount,
 	}
-
 }

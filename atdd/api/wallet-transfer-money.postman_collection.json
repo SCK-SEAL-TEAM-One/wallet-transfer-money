@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3c03f03a-7639-448e-8e8a-2b806a7b3229",
+		"_postman_id": "02fa02f4-0dcf-40ec-bf49-a6d03f93689c",
 		"name": "wallet-transfer-money",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,22 +11,22 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "988aa159-6020-4e1f-a38d-2ec489ac4eed",
+						"id": "e9c90247-6da0-4b44-9d2b-eeb10208a2ad",
 						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Balance old\", function () {",
 							"    var wallet_transfer_money = pm.response.json();",
-							"    pm.expect(jsonData.balanceold).to.eql(20000.00);",
+							"    pm.expect(wallet_transfer_money.balanceold).to.eql(20000.00);",
 							"});",
 							"",
 							"pm.test(\"Balance new\", function () {",
 							"    var wallet_transfer_money = pm.response.json();",
-							"    pm.expect(jsonData.balancenew).to.eql(19500.00);",
+							"    pm.expect(wallet_transfer_money.balancenew).to.eql(19500.00);",
 							"});",
 							"",
 							"pm.test(\"With drawal\", function () {",
 							"    var wallet_transfer_money = pm.response.json();",
-							"    pm.expect(jsonData.withdrawal).to.eql(500.00);",
+							"    pm.expect(wallet_transfer_money.withdrawal).to.eql(500.00);",
 							"});",
 							""
 						]
@@ -35,39 +35,30 @@
 			],
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
 				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "accountNumberFrom",
-							"value": "981-7-57142-4",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "accountNumberTo",
-							"value": "981-7-57142-5",
-							"description": "",
-							"type": "text"
-						},
-						{
-							"key": "amountTransfer",
-							"value": "500.00",
-							"description": "",
-							"type": "text"
-						}
-					]
+					"mode": "raw",
+					"raw": "{\n\t\"accountNumberFrom\": \"981751424\",\n\t\"accountNumberTo\": \"981751425\",\n\t\"amountTransfer\": 500.00\n}"
 				},
 				"url": {
-					"raw": "{{url}}?",
+					"raw": "http://localhost:3000/transfer",
+					"protocol": "http",
 					"host": [
-						"{{url}}"
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"transfer"
 					],
 					"query": [
 						{
 							"key": "accountNumberFrom",
-							"value": "981-7-5-7142-4",
+							"value": "9817571424",
 							"disabled": true
 						}
 					]

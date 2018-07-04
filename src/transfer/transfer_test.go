@@ -2,6 +2,23 @@ package transfer
 
 import "testing"
 
+func Test_TransferService_Input_AccountNumberFrom_981751424_And_AccountNumberTo_9817571425_And_AmountTransfer_500_Should_Be_TransferResponse(t *testing.T) {
+	accountNumberFrom := "981751424"
+	accountNumberTo := "981751425"
+	amountTransfer := 500.00
+	expected := TransferResponse{
+		BalanceOld: 20000.00,
+		BalanceNew: 19500.00,
+		Withdrawal: 500.00,
+	}
+
+	actual := TransferService(accountNumberFrom, accountNumberTo, amountTransfer)
+
+	if expected != actual {
+		t.Errorf("Should Be\n%v\nbut it got\n%v", expected, actual)
+	}
+}
+
 func Test_checkBalance_Input_20000_Dot_00_And_500_Dot_00_And_0_Dot_00_Should_Be_False(t *testing.T) {
 	amount := 20000.00
 	fee := 0.00
