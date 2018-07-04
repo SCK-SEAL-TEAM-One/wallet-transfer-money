@@ -18,7 +18,7 @@ func Test_TransferHandler_Input_From_9817571424_And_To_9817571425_Should_Be_Bala
 	requestBodyString, _ := json.Marshal(requestBody)
 	request := httptest.NewRequest("POST", url, bytes.NewBuffer(requestBodyString))
 	responseRecorder := httptest.NewRecorder()
-	expected := `{"balanceold":20000.00,"balancenew":19500.00,"withdrawal":500.00}`
+	expected := `{"balanceold":20000,"balancenew":19500,"withdrawal":500.25}`
 
 	TransferHandler(responseRecorder, request)
 	response := responseRecorder.Result()
