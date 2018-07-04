@@ -2,14 +2,10 @@ package main
 
 import (
 	"net/http"
-	"fmt"
+	"api"
 )
 
 func main() {
-	http.HandleFunc("/test", testserve)
+	http.HandleFunc("/transfer", api.TransferHandler)
 	http.ListenAndServe(":3000", nil)
-}
-
-func testserve(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello")
 }

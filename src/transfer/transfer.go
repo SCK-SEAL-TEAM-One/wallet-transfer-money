@@ -14,6 +14,13 @@ func TransferService(accountNumberFrom, accountNumberTo string, amountTransfer f
 	}
 }
 
+func checkBalance(amount, transterMoney, fee float64) bool {
+	if transterMoney+fee >= amount {
+		return true
+	}
+
+	return false
+}
 func checkTransferPerDay(amount float64) bool {
 	if amount > 100000.00 {
 		return true
