@@ -2,9 +2,9 @@ package transfer
 
 import "testing"
 
-func Test_checkTransferPerDay_Input_500_Should_Be__True(t *testing.T) {
+func Test_checkTransferPerDay_Input_500_Should_Be__False(t *testing.T) {
 	amount := 500.00
-	expected := true
+	expected := false
 
 	actual := checkTransferPerDay(amount)
 	if expected != actual {
