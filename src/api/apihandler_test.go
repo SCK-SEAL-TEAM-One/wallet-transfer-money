@@ -18,14 +18,14 @@ func Test_TransferHandler_Input_From_9817571424_And_To_9817571425_Should_Be_Bala
 	requestBodyString, _ := json.Marshal(requestBody)
 	request := httptest.NewRequest("POST", url, bytes.NewBuffer(requestBodyString))
 	responseRecorder := httptest.NewRecorder()
-	expected := `{"balanceold":20000,"balancenew":19500,"withdrawal":500.25}`
+	expected := `{"balanceold":20000,"balancenew":19500,"withdrawal":500}`
 
 	TransferHandler(responseRecorder, request)
 	response := responseRecorder.Result()
 	actual, _ := ioutil.ReadAll(response.Body)
 
 	if string(actual) != expected {
-		t.Errorf("Should Be %s but it got %s", expected, actual)
+		t.Errorf("Should Be\n%s\nbut it got\n%s", expected, actual)
 	}
 
 }
