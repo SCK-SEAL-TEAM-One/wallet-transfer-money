@@ -62,15 +62,10 @@ HOUR, MINUTE
 * ให้เขียนรายละเอียดด้วยว่าแก้ไขอะไรและทำที่ตรงไหน
 
 ## คำสั่ง Run Test
-### ค่าสั่ง Run Acceptance Test (Robot)
-
-```
-robot duration.robot
-```
 
 ### คำสั่ง Run Acceptance Test (API)
 ```
-newman run filename
+newman run atdd/api/wallet-transfer-money.postman_collection.json
 ```
 
 ## Additional
