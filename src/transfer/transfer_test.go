@@ -51,5 +51,15 @@ func Test_TransferProcess_Input_From_981757424_To_981757425_Should_Be_TransferRe
 	if expected != actual {
 		t.Errorf("Should %v but got %v", expected, actual)
 	}
+}
+func Test_checkTransferPerTransaction_Input_500_Dot_00_Should_Be_True(t *testing.T) {
+	transferPerTransaction := 500.00
+	expected := false
+
+	actual := checkTransferPerTransaction(transferPerTransaction)
+
+	if expected != actual {
+		t.Errorf("Should be %t but got %t", expected, actual)
+	}
 
 }

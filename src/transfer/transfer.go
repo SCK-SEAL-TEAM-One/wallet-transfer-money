@@ -28,3 +28,11 @@ func getAccount(accountNumber string) Account {
 func checkTransferPerDay(amount float64) bool {
 	return amount > LIMITPERDAY
 }
+
+func checkTransferPerTransaction(checkTransferPerTransaction float64) bool {
+	if checkTransferPerTransaction > 20000 {
+		return true
+	}
+	return false
+
+}
