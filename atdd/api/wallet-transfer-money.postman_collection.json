@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "3c03f03a-7639-448e-8e8a-2b806a7b3229",
+		"name": "wallet-transfer-money",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "input_from_9817571424_to_9817571425_amount_500",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ceae6806-d22b-424c-885a-86b51d558f8b",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status\", function () {",
+							"    var wallet_transfer_money = pm.response.json();",
+							"    pm.expect(jsonData.status).to.eql(200);",
+							"});",
+							"",
+							"pm.test(\"Messenger\", function () {",
+							"    var wallet_transfer_money = pm.response.json();",
+							"    pm.expect(jsonData.messenger).to.eql(\"Transfer Success\");",
+							"});",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "accountNumberFrom",
+							"value": "981-7-57142-4",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "accountNumberTo",
+							"value": "981-7-57142-5",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "amountTransfer",
+							"value": "500.00",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}?",
+					"host": [
+						"{{url}}"
+					],
+					"query": [
+						{
+							"key": "accountNumberFrom",
+							"value": "981-7-5-7142-4",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
