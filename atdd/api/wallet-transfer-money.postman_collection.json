@@ -11,22 +11,22 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "62411807-d9e1-4cb7-ade3-4796a6b48fc9",
+						"id": "988aa159-6020-4e1f-a38d-2ec489ac4eed",
 						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Balance old\", function () {",
 							"    var wallet_transfer_money = pm.response.json();",
-							"    pm.expect(jsonData.balanceold).to.eql(20000);",
+							"    pm.expect(jsonData.balanceold).to.eql(20000.00);",
 							"});",
 							"",
 							"pm.test(\"Balance new\", function () {",
 							"    var wallet_transfer_money = pm.response.json();",
-							"    pm.expect(jsonData.balancenew).to.eql(19500);",
+							"    pm.expect(jsonData.balancenew).to.eql(19500.00);",
 							"});",
 							"",
 							"pm.test(\"With drawal\", function () {",
 							"    var wallet_transfer_money = pm.response.json();",
-							"    pm.expect(jsonData.withdrawal).to.eql(500);",
+							"    pm.expect(jsonData.withdrawal).to.eql(500.00);",
 							"});",
 							""
 						]
